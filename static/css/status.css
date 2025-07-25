@@ -1,0 +1,45 @@
+body {
+  background: linear-gradient(to right, #4a00e0, #8e2de2);
+  font-family: "Poppins", sans-serif;
+  color: #fff;
+  padding: 20px;
+}
+
+.container {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.3);
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+th, td {
+  padding: 12px;
+  border: 1px solid #ccc;
+  text-align: center;
+}
+
+.status-dropdown {
+  padding: 5px;
+  border-radius: 6px;
+}
+
+.update-btn {
+  margin-top: 5px;
+  padding: 5px 12px;
+  background: #fff;
+  color: #333;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}

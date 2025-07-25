@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>About - Village Maintenance Portal</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/about.css') }}">
+</head>
+<body>
+    <header>
+        <h1>About Us</h1>
+        <a href="{{ url_for('home') }}">← Back to Home</a>
+    </header>
+
+    <section>
+        <p>
+            This portal allows villagers to submit complaints related to roads, water,
+            streetlights, and sanitation. All complaints are forwarded to the respective departments.
+        </p>
+    </section>
+</body>
+</html>

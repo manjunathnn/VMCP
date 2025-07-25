@@ -1,0 +1,9 @@
+flask
+flask_sqlalchemy
+flask_mail
+flask_login
+mysql-connector-python
+python-dotenv
+bcrypt
+requests
+werkzeug

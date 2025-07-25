@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Complaint Status</title>
+  <link rel="stylesheet" href="/static/css/status.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Complaint Status Dashboard</h1>
+
+    <table>
+      <thead>
+        <tr>
+          <th>User Name</th>
+          <th>Location</th>
+          <th>Issue Type</th>
+          <th>Description</th>
+          <th>Photo</th>
+          <th>Status</th>
+          <th>Update Status</th>
+        </tr>
+      </thead>
+      <tbody id="complaintsTable">
+        <!-- Example row -->
+        <tr>
+          <td>Ravi Kumar</td>
+          <td>Ballari, Sandur</td>
+          <td>Streetlight</td>
+          <td>Light not working near temple</td>
+          <td><a href="uploads/photo1.jpg" target="_blank">View</a></td>
+          <td class="status-text">Pending</td>
+          <td>
+            <!-- Show dropdown only if admin -->
+            <select class="status-dropdown">
+              <option>Pending</option>
+              <option>In Progress</option>
+              <option>Resolved</option>
+            </select>
+            <button class="update-btn">Update</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <script>
+    // For admin simulation: update status on button click
+    const updateButtons = document.querySelectorAll('.update-btn');
+    updateButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const row = btn.closest('tr');
+        const newStatus = row.querySelector('.status-dropdown').value;
+        row.querySelector('.status-text').textContent = newStatus;
+        alert("Status updated to: " + newStatus);
+        // TODO: send to backend via fetch/AJAX
+      });
+    });
+  </script>
+  <script src="/static/js/track.js"></script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Complaints</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/complaints.css') }}">
+</head>
+<body>
+    <h2>My Complaints</h2>
+    {% if complaints %}
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>Type</th>
+                <th>Description</th>
+                <th>Date</th>
+                <th>Status</th>
+                <th>Photo</th>
+            </tr>
+            {% for complaint in complaints %}
+            <tr>
+                <td>{{ complaint.id }}</td>
+                <td>{{ complaint.issue_type }}</td>
+                <td>{{ complaint.description }}</td>
+                <td>{{ complaint.date_submitted }}</td>
+                <td>{{ complaint.status }}</td>
+                <td>
+                    {% if complaint.photo %}
+                        <img src="{{ url_for('static', filename='uploads/' ~ complaint.photo) }}" width="100">
+                    {% else %}
+                        No photo
+                    {% endif %}
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+    {% else %}
+        <p>You have not submitted any complaints yet.</p>
+    {% endif %}
+</body>
+</html>

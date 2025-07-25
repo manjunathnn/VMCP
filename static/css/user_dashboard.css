@@ -1,0 +1,38 @@
+<style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 30px;
+      background-color: #f8f8f8;
+    }
+
+    h2 {
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background-color: white;
+    }
+
+    th, td {
+      padding: 12px;
+      border: 1px solid #ccc;
+      text-align: left;
+    }
+
+    th {
+      background-color: #f0f0f0;
+    }
+
+    .link-bar {
+      margin-top: 20px;
+    }
+
+    a {
+      text-decoration: none;
+      margin-right: 15px;
+      color: #007bff;
+    }
+  </style>

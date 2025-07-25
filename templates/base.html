@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>{% block title %}Village Maintenance Portal{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    
+</head>
+<body>
+    <nav>
+        <a href="{{ url_for('home') }}">Home</a>
+        <a href="{{ url_for('about') }}">About</a>
+        {% if session.get('user_id') %}
+            <a href="{{ url_for('logout') }}">Logout</a>
+        {% else %}
+            <a href="{{ url_for('login') }}">Login</a>
+            <a href="{{ url_for('register') }}">Register</a>
+        {% endif %}
+    </nav>
+
+    <main>
+        {% block content %}
+
+        {% extends 'base.html' %}
+        {% block title %}Home{% endblock %}
+        {% block content %}
+
+        <h1>Welcome to the Village Maintenance Complaint Portal</h1>
+        <p>Submit and track your village complaints efficiently.</p>
+        {% endblock %}
+        {% extends 'base.html' %}
+
+        {% block title %}About{% endblock %}
+
+        {% block content %}
+
+        <h1>About Us</h1>
+        <p>This portal allows villagers to submit complaints related to roads, water, streetlights, and sanitation.</p>
+        {% endblock %}
+
+        {% extends 'base.html' %}
+
+        {% extends 'base.html' %}
+
+       {% block title %}Login{% endblock %}
+
+       {% block content %}
+       <h2>Login</h2>
+       <form method="POST" action="{{ url_for('login') }}">
+        <label>Email:</label>
+        <input type="email" name="email" required><br>
+        <label>Password:</label>
+        <input type="password" name="password" required><br>
+        <button type="submit">Login</button>
+    </form>
+        {% endblock %}
+
+
+
+        {% block title %}Register{% endblock %}
+
+        {% block content %}
+        <h2>Register</h2>
+        <form method="POST" action="{{ url_for('register') }}">
+            <label>Name:</label>
+            <input type="text" name="name" required><br>
+            <label>Email:</label>
+            <input type="email" name="email" required><br>
+            <label>Password:</label>
+            <input type="password" name="password" required><br>
+            <label>Location:</label>
+            <input type="text" name="location" required><br>
+            <button type="submit">Register</button>
+        </form>
+        {% endblock %}
+        {% extends 'base.html' %}
+
+        {% block title %}Submit Complaint{% endblock %}
+
+        {% block content %}
+        <h2>Submit a Complaint</h2>
+        <a href="{{ url_for('my_complaints') }}">My Complaints</a>
+
+        <form method="POST" enctype="multipart/form-data" action="{{ url_for('submit_complaint') }}">
+            <label>Type:</label>
+            <input type="text" name="type" required><br>
+            <label>Description:</label>
+            <textarea name="description" required></textarea><br>
+            <label>Upload Photo:</label>
+            <input type="file" name="photo"><br>
+            <label>Location:</label>
+            <input type="text" name="location" required><br>
+            <button type="submit">Submit</button>
+        </form>
+        {% endblock %}
+
+
+        {% endblock %}
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Village Maintenance Portal</p>
+    </footer>
+</body>
+</html>

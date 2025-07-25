@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Village Maintenance Complaint Portal</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}" />
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="logo">Village Maintenance</div>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="{{ url_for('home') }}">Home</a></li>
+        <li><a href="{{ url_for('about') }}">About</a></li>
+        <li><a href="{{ url_for('login') }}">Login</a></li>
+        <li><a href="{{ url_for('register') }}">Register</a></li>
+        <li><a href="{{ url_for('logout') }}">Logout</a></li>
+
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Home Section -->
+  <section id="home" class="section home-section">
+    <div class="container">
+      <h1>Welcome to the Village Maintenance Complaint Portal</h1>
+      <p>Report issues, track progress, and help improve your village.</p>
+      <div class="btn-group">
+        <a href="{{ url_for('login') }}" class="btn">Login</a>
+        <a href="{{ url_for('register') }}" class="btn">Register</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="section about-section">
+    <div class="container">
+      <h2>About the Portal</h2>
+      <p>
+        This portal allows villagers to submit maintenance complaints related to water, roads,
+        electricity, and more. Track the status of your complaints and receive timely updates from authorities.
+      </p>
+      <p>
+        Designed to bring transparency and efficiency to village administration and public issue handling.
+      </p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>&copy; 2025 Village Maintenance Complaint Portal. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>

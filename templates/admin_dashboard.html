@@ -1,0 +1,46 @@
+<h1>Admin Dashboard</h1>
+<a href="{{ url_for('logout.html') }}">Logout</a>
+
+
+<h2>Submitted Complaints</h2>
+
+<table border="1" cellpadding="10">
+  <thead>
+    <tr>
+      <th>Complaint_ID</th>
+      <th>User_Id</th>
+      <th>Department_Id</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Photo_URL</th>
+      <th>Location</th>
+      <th>Status</th>
+      <th>Update</th>
+      <th>Submitted</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for complaint in complaints %}
+    <tr>
+      <td>{{ complaint.complaint_id }}</td>
+      <td>{{ complaint.user_name }}</td>
+      <td>{{ complaint.department }}</td>
+      <td>{{ complaint.type }}</td>
+      <td>{{ complaint.description }}</td>
+      <td>{{ complaint.status }}</td>
+      <td>
+        <form method="POST" action="{{ url_for('update_status', complaint_id=complaint.id) }}">
+          <select name="status">
+            <option value="Pending" {% if complaint.status == 'Pending' %}selected{% endif %}>Pending</option>
+            <option value="In Progress" {% if complaint.status == 'In Progress' %}selected{% endif %}>In Progress</option>
+            <option value="Resolved" {% if complaint.status == 'Resolved' %}selected{% endif %}>Resolved</option>
+          </select>
+          <button type="submit">Update</button>
+        </form>
+      </td>
+      <td>{{ complaint.submission_date }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+<a href="{{ url_for('admin_users') }}">View Registered Users</a>
